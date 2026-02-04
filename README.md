@@ -17,6 +17,7 @@ This is a single-page HTML resume built with Tailwind CSS. It is designed to be 
 To make the portfolio section shine, add screenshots of your projects to the `assets/images/` folder.
 Ensure they are named exactly as follows (or update the filenames in `index.html`):
 
+0.  **Profile**: `me.png` (Square, recommended 400x400px)
 1.  **SAM**: `sam.png` (approx 600x400px recommended)
 2.  **Synapse**: `synapse.png`
 3.  **Arcoore**: `arcoore.png`
