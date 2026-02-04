@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bartek Golebiowski - Software Engineer & Indie Hacker</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            darker: '#020617',
+                            accent: '#4ade80', /* green-400 */
+                            accentDim: 'rgba(74, 222, 128, 0.1)',
+                            glass: 'rgba(30, 41, 59, 0.7)',
+                            glassBorder: 'rgba(255, 255, 255, 0.08)',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-card {
+                @apply bg-brand-glass backdrop-blur-md border border-brand-glassBorder rounded-2xl shadow-xl;
+            }
+            .text-glow {
+                text-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+            }
+        }
+        body {
+            @apply bg-brand-darker text-slate-300;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(74, 222, 128, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(74, 222, 128, 0.05) 0%, transparent 20%);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen py-10 px-4 md:px-8 max-w-7xl mx-auto selection:bg-brand-accent selection:text-brand-darker">
+
+    <!-- Top Pattern Decoration -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none opacity-20">
+        <svg class="absolute top-0 left-0 text-brand-accent w-64 h-64 -translate-x-1/2 -translate-y-1/2"
+            viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+            <path d="M0 50 Q 25 25 50 50 T 100 50" opacity="0.5" />
+            <path d="M0 60 Q 25 35 50 60 T 100 60" opacity="0.3" />
+            <path d="M0 40 Q 25 15 50 40 T 100 40" opacity="0.7" />
+        </svg>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left Sidebar / Info Column -->
+        <aside class="lg:col-span-4 space-y-6">
+
+            <!-- Profile Card -->
+            <div
+                class="glass-card p-8 text-center lg:text-left relative overflow-hidden group hover:border-brand-accent/30 transition-colors duration-500">
+                <div
+                    class="absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl group-hover:bg-brand-accent/20 transition-all duration-700">
+                </div>
+
+                <!-- Image Placeholder -->
+                <div
+                    class="w-32 h-32 mx-auto lg:mx-0 rounded-full bg-slate-800 border-2 border-brand-accent shadow-[0_0_20px_rgba(74,222,128,0.2)] mb-6 overflow-hidden relative">
+                    <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Bartek" alt="Bartek Golebiowski"
+                        class="w-full h-full object-cover">
+                </div>
+
+                <h1 class="text-4xl font-bold text-white mb-2 tracking-tight">Bartek <br
+                        class="hidden lg:block" />Golebiowski</h1>
+                <h2 class="text-brand-accent font-medium text-lg mb-6 tracking-wide uppercase text-sm">Software Engineer
+                    & Indie Hacker</h2>
+
+                <p class="text-slate-400 leading-relaxed mb-6 font-light">
+                    Building is my passion; technology is my tool.
+                    <br><br>
+                    I don't just write code; I build solutions. Member of the <strong class="text-white">Liam
+                        Ottley</strong> community.
+                </p>
+
+                <div class="flex flex-col gap-3 text-sm">
+                    <a href="mailto:bartek@prospere.ai"
+                        class="flex items-center gap-3 text-slate-300 hover:text-brand-accent transition-colors group/link">
+                        <span
+                            class="p-2 bg-brand-accentDim rounded-lg group-hover/link:bg-brand-accent group-hover/link:text-brand-darker transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </span>
+                        bartek@prospere.ai
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-3 text-slate-300 hover:text-brand-accent transition-colors group/link">
+                        <span
+                            class="p-2 bg-brand-accentDim rounded-lg group-hover/link:bg-brand-accent group-hover/link:text-brand-darker transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </span>
+                        +34 722 49 79 83
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-3 text-slate-300 hover:text-brand-accent transition-colors group/link">
+                        <span
+                            class="p-2 bg-brand-accentDim rounded-lg group-hover/link:bg-brand-accent group-hover/link:text-brand-darker transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </span>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="glass-card p-8">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#4ade80]"></span>
+                    Skills
+                </h3>
+
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">Languages &
+                            Frameworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-brand-accent font-mono">Python</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-brand-accent font-mono">Node.js</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-brand-accent font-mono">Next.js</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-brand-accent font-mono">React</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-brand-accent font-mono">TypeScript</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">AI & LLM Ops
+                        </h4>
+                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 marker:text-brand-accent">
+                            <li>LlamaIndex, RAG</li>
+                            <li>Qdrant, LLM Orchestration</li>
+                            <li>PydanticAI, MCP</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">Advanced AI
+                            & GenAI</h4>
+                        <ul class="list-disc list-inside text-sm text-slate-400 space-y-1 marker:text-brand-accent">
+                            <li>Vercel AI SDK & Gateway</li>
+                            <li>Stable Diffusion</li>
+                            <li>Fine-tuning (LLMs & Diffusion)</li>
+                            <li>Vibe Coding (Cursor, Antigravity)</li>
+                            <li>Prompt Engineering</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">Backend &
+                            Databases</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-slate-300 font-mono">Convex</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-slate-300 font-mono">PostgreSQL</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-slate-300 font-mono">Redis</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800/50 border border-slate-700 rounded-md text-xs text-slate-300 font-mono">DynamoDB</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">
+                            Infrastructure & Cloud</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            AWS (S3, EC2, Lambda, Greengrass), Railway, Vercel, CI/CD pipelines
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium mb-3 text-sm uppercase tracking-wider opacity-80">Business &
+                            Automation</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Stripe, polar.sh (Monetization), n8n (Workflows)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="glass-card p-8">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#4ade80]"></span>
+                    Languages
+                </h3>
+                <ul class="space-y-3 text-sm text-slate-300">
+                    <li class="flex justify-between border-b border-slate-800 pb-2">
+                        <span>Polish</span>
+                        <span class="text-brand-accent font-mono text-xs">Native</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-800 pb-2">
+                        <span>English</span>
+                        <span class="text-brand-accent font-mono text-xs">C2 (Fluent)</span>
+                    </li>
+                    <li class="flex justify-between border-b border-slate-800 pb-2">
+                        <span>Spanish</span>
+                        <span class="text-brand-accent font-mono text-xs">B2</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="glass-card p-8">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_10px_#4ade80]"></span>
+                    Education
+                </h3>
+                <div class="space-y-6">
+                    <div class="relative pl-6 border-l border-slate-800">
+                        <span
+                            class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-brand-darker border-2 border-brand-accent"></span>
+                        <h4 class="text-white font-semibold text-sm">Wroclaw University of Science and Technology</h4>
+                        <p class="text-brand-accent text-xs font-mono my-1">07.2019</p>
+                        <p class="text-slate-400 text-sm">Masters graduated</p>
+                    </div>
+                    <div class="relative pl-6 border-l border-slate-800">
+                        <span
+                            class="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-brand-darker border-2 border-brand-accent"></span>
+                        <h4 class="text-white font-semibold text-sm">Wroclaw University of Science and Technology</h4>
+                        <p class="text-brand-accent text-xs font-mono my-1">07.2019</p>
+                        <p class="text-slate-400 text-sm">Engineer graduated</p>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Right Content / Main -->
+        <main class="lg:col-span-8 space-y-8">
+
+            <!-- About / Philosophy -->
+            <section class="glass-card p-8 lg:p-10 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl"></div>
+
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-accent" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Philosophy
+                </h2>
+
+                <p class="text-slate-300 leading-loose text-lg font-light">
+                    I specialize in turning ideas into functional products at <span
+                        class="text-brand-accent font-medium">speed</span>.
+                    Heavily inspired by the ship-fast philosophies of <strong class="text-white font-semibold">Pieter
+                        Levels</strong>
+                    and <strong class="text-white font-semibold">Marc Lou</strong>.
+                </p>
+            </section>
+
+            <!-- Experience -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                    Work Experience
+                    <span
+                        class="text-sm font-mono text-brand-accent font-normal px-2 py-1 bg-brand-accentDim rounded-md opacity-70">()
+                        => { ... }</span>
+                </h2>
+
+                <div class="space-y-6">
+
+                    <!-- Prospere AI -->
+                    <div class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                            <div>
+                                <h3
+                                    class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors">
+                                    Prospere AI</h3>
+                                <p class="text-slate-400">Freelancer</p>
+                            </div>
+                            <span
+                                class="mt-2 md:mt-0 px-3 py-1 bg-brand-accent/10 text-brand-accent rounded-full text-xs font-mono border border-brand-accent/20">2025
+                                - Present</span>
+                        </div>
+                        <ul class="space-y-2 mt-4 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-brand-accent shrink-0"></span>
+                                Intelligent AI Agents & Chatbots
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-brand-accent shrink-0"></span>
+                                Workflow Automation
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-brand-accent shrink-0"></span>
+                                Full-Cycle SaaS Development
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Future Fibres -->
+                    <div class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                            <div>
+                                <h3
+                                    class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors">
+                                    Future Fibres</h3>
+                                <p class="text-slate-400">Lead IoT Engineer</p>
+                            </div>
+                            <span
+                                class="mt-2 md:mt-0 px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-mono border border-slate-700">2021
+                                - 2025</span>
+                        </div>
+                        <div class="mb-4 space-y-3 text-slate-300">
+                            <p class="font-medium text-brand-accent">Built and led a 4-member team.</p>
+                            <ul class="space-y-2 text-sm leading-relaxed">
+                                <li>⚓ <strong class="text-white">The Mission:</strong> Define the technical future of
+                                    smart rigging solutions.</li>
+                                <li>🚀 <strong class="text-white">The Execution:</strong> Designed the end-to-end
+                                    architecture for the industry's first IoT-enabled composite.</li>
+                                <li>💻 <strong class="text-white">The Stack:</strong> Leveraging AWS Greengrass, custom
+                                    Linux, and secure APIs to deliver real-time edge analytics.</li>
+                                <li>🏆 <strong class="text-white">The Impact:</strong> Scaled disruptive technology from
+                                    a prototype to a market-leading product.</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">AWS
+                                Greengrass</span>
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">Lambda</span>
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">S3</span>
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">C++</span>
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">Python</span>
+                            <span
+                                class="px-2 py-1 bg-brand-darker rounded text-xs text-brand-accent font-mono border border-slate-800">Vue</span>
+                        </div>
+                    </div>
+
+                    <!-- EBS Ink-Jet Systems -->
+                    <div class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                            <div>
+                                <h3
+                                    class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors">
+                                    EBS Ink-Jet Systems</h3>
+                                <p class="text-slate-400">C++ dev</p>
+                            </div>
+                            <span
+                                class="mt-2 md:mt-0 px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-mono border border-slate-700">2020
+                                - 2021</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            C++/Custom Linux developer. Low-code dev job with electronics. Super fast ink printers for
+                            production space.
+                        </p>
+                    </div>
+
+                    <!-- A4BEE -->
+                    <div class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                            <div>
+                                <h3
+                                    class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors">
+                                    A4BEE</h3>
+                                <p class="text-slate-400">IoT Engineer</p>
+                            </div>
+                            <span
+                                class="mt-2 md:mt-0 px-3 py-1 bg-slate-800 text-slate-400 rounded-full text-xs font-mono border border-slate-700">2019
+                                - 2021</span>
+                        </div>
+                        <ul class="space-y-2 mt-4 text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0"></span>
+                                Prototyping in Node-RED
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0"></span>
+                                Building custom nodes in NodeJS
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0"></span>
+                                Creating solutions for Bio-Tech
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Portfolio -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                    Featured Projects
+                    <span
+                        class="text-sm font-mono text-brand-accent font-normal px-2 py-1 bg-brand-accentDim rounded-md opacity-70">./portfolio</span>
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- SAM -->
+                    <div
+                        class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-brand-accent">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="m4.93 4.93 4.24 4.24" />
+                                <path d="m14.83 9.17 4.24-4.24" />
+                                <path d="m14.83 14.83 4.24 4.24" />
+                                <path d="m9.17 14.83-4.24 4.24" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors mb-2 flex items-center gap-3">
+                            <a href="https://marintelligence.ai/" target="_blank"
+                                class="inline-flex items-center gap-2 hover:text-brand-accent border-b border-brand-accent/30 hover:border-brand-accent transition-all pb-0.5">
+                                SAM
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                            <span class="text-slate-500 font-light text-lg">| AI Yacht Assistant</span>
+                        </h3>
+                        <p class="text-brand-accent font-mono text-xs mb-4">SaaS MVP • AI First Mate</p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="w-full h-48 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 flex items-center justify-center relative overflow-hidden group/image">
+                            <img src="assets/images/sam.png" alt="SAM - AI Yacht Assistant"
+                                class="absolute inset-0 w-full h-full object-cover z-20 transition-transform duration-500 group-hover/image:scale-105"
+                                onerror="this.style.display='none'">
+                            <!-- Placeholder Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4ade80 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <div class="text-center z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-600 mx-auto mb-2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                                <span class="text-xs font-mono text-slate-500 block">Project Image</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                A personalized "AI First Mate" that leverages manuals, issue logs, inventory, and
+                                checklists to support the captain in diagnostics, deck operations, and safety.
+                            </p>
+
+                            <div class="bg-brand-darker/50 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-white text-sm font-semibold mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent">
+                                        <path d="m5 12 7-7 7 7" />
+                                        <path d="M12 19V5" />
+                                    </svg>
+                                    Advanced RAG Stack
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Built with <span class="text-brand-accent">LlamaIndex, Convex, Next.js</span>, and
+                                    AI SDK. Integrated with OpenAI, Grok, and Anthropic models for context-aware yacht
+                                    documentation analysis.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    SaaS MVP ready for deployment with web and voice capabilities.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Developing offline mode for reliable performance at sea.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Synapse -->
+                    <div
+                        class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <!-- Network/Hub Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-brand-accent">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                                <line x1="6" y1="6" x2="6.01" y2="6" />
+                                <line x1="6" y1="18" x2="6.01" y2="18" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors mb-2 flex items-center gap-3">
+                            <a href="https://www.futurefibres.com/portfolio/integrated-sensors/" target="_blank"
+                                class="inline-flex items-center gap-2 hover:text-brand-accent border-b border-brand-accent/30 hover:border-brand-accent transition-all pb-0.5">
+                                Synapse
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                            <span class="text-slate-500 font-light text-lg">| Yacht IoT Data Hub</span>
+                        </h3>
+                        <p class="text-brand-accent font-mono text-xs mb-4">4 Years: Architect + Lead Developer</p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="w-full h-48 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 flex items-center justify-center relative overflow-hidden group/image">
+                            <img src="assets/images/synapse.png" alt="Synapse - Yacht IoT Data Hub"
+                                class="absolute inset-0 w-full h-full object-cover z-20 transition-transform duration-500 group-hover/image:scale-105"
+                                onerror="this.style.display='none'">
+                            <!-- Placeholder Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4ade80 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <div class="text-center z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-600 mx-auto mb-2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                                <span class="text-xs font-mono text-slate-500 block">Project Image</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                Initiated and led the development of Synapse, an IoT system designed for collecting,
+                                processing, and analyzing yacht data, built on custom electronics, edge computing, and
+                                seamless integration with onboard systems.
+                            </p>
+
+                            <div class="bg-brand-darker/50 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-white text-sm font-semibold mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent">
+                                        <circle cx="12" cy="12" r="3" />
+                                        <path
+                                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                    </svg>
+                                    Integrated Sensors
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    The platform interfaced with <span class="text-brand-accent">custom load cell
+                                        sensors</span> to measure tension on carbon rigging, enabling precise, real-time
+                                    monitoring of critical yacht components.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Handled cloud data transmission, local analytics/alerting, and provided both
+                                    online/offline diagnostics.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Delivered full structural visibility, reduced failure risk, and established the
+                                    foundation for <span class="text-brand-accent">predictive maintenance</span>.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Arcoore -->
+                    <div
+                        class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <!-- Shop/Bot Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-brand-accent">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                                <path d="M3 6h18" />
+                                <path d="M16 10a4 4 0 0 1-8 0" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors mb-2 flex items-center gap-3">
+                            <a href="https://arcoore.com/" target="_blank"
+                                class="inline-flex items-center gap-2 hover:text-brand-accent border-b border-brand-accent/30 hover:border-brand-accent transition-all pb-0.5">
+                                Arcoore
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                            <span class="text-slate-500 font-light text-lg">| AI Sales Assistant</span>
+                        </h3>
+                        <p class="text-brand-accent font-mono text-xs mb-4">E-commerce • AI Agent • Automation</p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="w-full h-48 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 flex items-center justify-center relative overflow-hidden group/image">
+                            <img src="assets/images/arcoore.png" alt="Arcoore - AI Sales Assistant"
+                                class="absolute inset-0 w-full h-full object-cover z-20 transition-transform duration-500 group-hover/image:scale-105"
+                                onerror="this.style.display='none'">
+                            <!-- Placeholder Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4ade80 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <div class="text-center z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-600 mx-auto mb-2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                                <span class="text-xs font-mono text-slate-500 block">Project Image</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                Developed an intelligent sales assistant for a truck parts retailer that handles
+                                customer inquiries, diagnoses technical issues, and automatically matches products based
+                                on VIN or OE numbers.
+                            </p>
+
+                            <div class="bg-brand-darker/50 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-white text-sm font-semibold mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent">
+                                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                        <line x1="12" x2="12" y1="19" y2="22" />
+                                    </svg>
+                                    LLM + RAG Stack
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Powered by <span class="text-brand-accent">Qdrant, LlamaIndex, OpenAI</span>. Logic
+                                    orchestrated via <span class="text-brand-accent">n8n and Voiceflow</span> using
+                                    custom Python functions.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Resulted in fewer returns, faster service, and higher conversion rates.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Enabled automated lead generation and scalable operations without headcount
+                                    increase.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Omega Buildings -->
+                    <div
+                        class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <!-- Building/Real Estate Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-brand-accent">
+                                <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+                                <path d="M9 22v-4h6v4" />
+                                <path d="M8 6h.01" />
+                                <path d="M16 6h.01" />
+                                <path d="M12 6h.01" />
+                                <path d="M12 10h.01" />
+                                <path d="M12 14h.01" />
+                                <path d="M16 10h.01" />
+                                <path d="M16 14h.01" />
+                                <path d="M8 10h.01" />
+                                <path d="M8 14h.01" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors mb-2 flex items-center gap-3">
+                            Omega Buildings
+                            <span class="text-slate-500 font-light text-lg">| AI Real Estate Agent</span>
+                        </h3>
+                        <p class="text-brand-accent font-mono text-xs mb-4">Real Estate • Automation • Lead Gen</p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="w-full h-48 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 flex items-center justify-center relative overflow-hidden group/image">
+                            <img src="assets/images/omega.png" alt="Omega Buildings - AI Real Estate Agent"
+                                class="absolute inset-0 w-full h-full object-cover z-20 transition-transform duration-500 group-hover/image:scale-105"
+                                onerror="this.style.display='none'">
+                            <!-- Placeholder Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4ade80 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <div class="text-center z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-600 mx-auto mb-2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                                <span class="text-xs font-mono text-slate-500 block">Project Image</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                Built an AI Agent that automatically generates personalized apartment offers based on
+                                customer preferences, data pulled from Airtable, and real-time inventory from the
+                                investment portfolio.
+                            </p>
+
+                            <div class="bg-brand-darker/50 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-white text-sm font-semibold mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                                        <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+                                        <polyline points="7.5 19.79 7.5 14.6 3 12" />
+                                        <polyline points="21 12 16.5 14.6 16.5 19.79" />
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                        <line x1="12" x2="12" y1="22.08" y2="12" />
+                                    </svg>
+                                    Automated Agent Stack
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Utilizes <span class="text-brand-accent">OpenAI, RAG, Airtable API</span>.
+                                    Orchestrated with <span class="text-brand-accent">n8n</span>, featuring custom
+                                    analytical modules and automated email delivery.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Achieved full automation of offer generation, significantly reducing sales team
+                                    workload.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Resulted in faster lead response times and a higher conversion rate for viewings and
+                                    closed deals.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Hostky.app -->
+                    <div
+                        class="glass-card p-8 hover:translate-x-2 transition-transform duration-300 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <!-- Key/Lock Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-brand-accent">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="m5 12 6-6" />
+                                <path d="m9 16 6-6" />
+                                <path d="m13 20 6-6" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-white group-hover:text-brand-accent transition-colors mb-2 flex items-center gap-3">
+                            <a href="https://hostky.app/" target="_blank"
+                                class="inline-flex items-center gap-2 hover:text-brand-accent border-b border-brand-accent/30 hover:border-brand-accent transition-all pb-0.5">
+                                Hostky.app
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                            </a>
+                            <span class="text-slate-500 font-light text-lg">| Access Code Automation SaaS</span>
+                        </h3>
+                        <p class="text-brand-accent font-mono text-xs mb-4">Travel Tech • Automation • SaaS</p>
+
+                        <!-- Image Placeholder -->
+                        <div
+                            class="w-full h-48 bg-slate-800/50 rounded-xl border border-slate-700/50 mb-6 flex items-center justify-center relative overflow-hidden group/image">
+                            <img src="assets/images/hostky.png" alt="Hostky.app - Access Code Automation"
+                                class="absolute inset-0 w-full h-full object-cover z-20 transition-transform duration-500 group-hover/image:scale-105"
+                                onerror="this.style.display='none'">
+                            <!-- Placeholder Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4ade80 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <div class="text-center z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-600 mx-auto mb-2">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                                <span class="text-xs font-mono text-slate-500 block">Project Image</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                Developed Hostky.app, a SaaS platform that automatically generates, synchronizes, and
+                                dispatches access codes for short-term rentals, integrating with IdoBooking without the
+                                need for expensive smart locks.
+                            </p>
+
+                            <div class="bg-brand-darker/50 p-4 rounded-xl border border-slate-800">
+                                <h4 class="text-white text-sm font-semibold mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent">
+                                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg>
+                                    Autonomous & Secure
+                                </h4>
+                                <p class="text-sm text-slate-400">
+                                    Operates fully autonomously—fetching reservations, creating unique codes, sending
+                                    them to guests, and updating statuses in real-time while utilizing <span
+                                        class="text-brand-accent">traditional key lockboxes</span>.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Property owners save 30+ hours per month, eliminate manual entry errors.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-brand-accent mt-0.5 shrink-0">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    Benefit from a fully automated process with <span class="text-brand-accent">GDPR
+                                        compliance</span> and bank-grade security.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="mt-16 text-center text-slate-500 text-sm font-mono">
+        <p>&copy; 2026 Bartek Golebiowski. Built with Vibe.</p>
+    </footer>
+
+</body>
+
+</html>
